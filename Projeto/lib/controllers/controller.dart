@@ -1,8 +1,10 @@
 import 'dart:convert';
-
+import '';
+import 'package:projeto/globals.dart' as globals;
 import 'package:get/get.dart';
 import 'package:projeto/models/album_model.dart';
 import 'package:http/http.dart' as http;
+import '../screens/home.dart';
 
 class Controller1 extends GetxController{
   var photoList = <AlbumModel>[].obs;
@@ -15,7 +17,10 @@ class Controller1 extends GetxController{
   }
 
   Future<void> fetchAlbumData() async {
-    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos/1'));
+    String urlBase = 'https://jsonplaceholder.typicode.com/photos/';
+    String urlEnd = globals.pagina;
+    String url = urlBase + urlEnd;
+    final response = await http.get(Uri.parse(url));
 
         if(response.statusCode == 200){
           AlbumModel _albumModel = AlbumModel.fromJson(jsonDecode(response.body));

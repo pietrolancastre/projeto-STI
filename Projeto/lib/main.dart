@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: ControllerBindings1(),
+      initialBinding: ControllerBindings(),
       home: const Home(),
     );
   }

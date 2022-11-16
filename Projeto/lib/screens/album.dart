@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
+import '../controllers/controller.dart';
 
-import '../controllers/controller4.dart';
-
-class Album4 extends StatelessWidget {
-  const Album4({Key? key}) : super(key: key);
+class Album1 extends StatelessWidget {
+  const Album1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _controller = Get.find<Controller4>();
+    final _controller = Get.find<Controller1>();
 
     return Scaffold(
       body: Obx(  () => _controller.isLoading.value? const CircularProgressIndicator(): Center(

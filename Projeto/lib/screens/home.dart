@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
-
+import 'package:projeto/globals.dart' as globals;
 import '../controller_bindings.dart';
-import '../controller_bindings2.dart';
-import '../controller_bindings3.dart';
-import '../controller_bindings4.dart';
-import '../controllers/controller1.dart';
-import 'album1.dart';
-import 'album2.dart';
-import 'album3.dart';
-import 'album4.dart';
+import 'album.dart';
 
-
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final TextEditingController _albumController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,34 +26,36 @@ class Home extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(onPressed: () {
-                Get.to(Album1(), binding: ControllerBindings1());
-              },
-                  child: const Text('Album 1')),
-              const Padding(padding: EdgeInsetsDirectional.all(40.0)),
-              ElevatedButton(onPressed: () {
-                Get.to(Album2(), binding: ControllerBindings2());
-              },
-                  child: const Text('Album 2')),
-
-            ]
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: '0',
+              labelText: 'Digite um número de 1 a 4'
+            ),
+            validator: (String? value) {
+              if (value != null){
+                if (value == 1){
+                  globals.pagina = '1';
+                }
+                else if (value == 2){
+                  globals.pagina = '2';
+                }
+                else if (value == 3){
+                  globals.pagina = '3';
+                }
+                else if (value == 4){
+                  globals.pagina = '4';
+                }
+              }
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(onPressed: () {
-                Get.to(Album3(), binding: ControllerBindings3());
+                Get.to(Album1(), binding: ControllerBindings());
               },
-                  child: const Text('Album 3')),
-              const Padding(padding: const EdgeInsetsDirectional.all(40.0)),
-              ElevatedButton(onPressed: () {
-                Get.to(Album4(), binding: ControllerBindings4());
-              },
-                  child: const Text('Album 4')),
-            ],
+                  child: const Text('Album 1')),
+            ]
           ),
         ],
       ),
