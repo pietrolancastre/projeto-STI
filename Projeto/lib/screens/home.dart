@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(onPressed: () {
-                Get.to(Album1(), binding: ControllerBindings());
+                Get.to(Album(), binding: ControllerBindings());
               },
                   child: const Text('Album 1')),
             ]

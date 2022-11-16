@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/controller.dart';
 
-class Album1 extends StatelessWidget {
-  const Album1({Key? key}) : super(key: key);
+class Album extends StatelessWidget {
+  const Album({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
